@@ -1,10 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage('Build') { 
-            steps {
-                bat 'npm install' 
+        stage('sonar')
+        {
+            agent any
+            steps{
+                bat 'sonar-scanner.bat -D"sonar.projectKey=BankFrontend" -D"sonar.sources=." -D"sonar.host.url=http://localhost:1000" -D"sonar.token=sqp_ad250120f8e5ee6007b79ff461b277aaed96c227"'
             }
-        }
+        } 
     }
 }
+
+
