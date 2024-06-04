@@ -1,9 +1,30 @@
 pipeline {
     agent any
+
     stages {
-        stage('Build') { 
+        stage('Checkout') {
             steps {
-                sh 'npm start' 
+                checkout scm
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'npm install'
+                sh 'npm run build'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Add your deployment steps here
+                // For example, deploy to a web server or a cloud service
             }
         }
     }
