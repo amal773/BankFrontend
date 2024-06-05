@@ -5,7 +5,7 @@ pipeline {
         {
             agent any
             steps{
-                bat 'npm start'
+                bat 'npm install'
             }
         } 
     }
