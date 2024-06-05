@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage('sonar')
+        stage('run')
         {
             agent any
             steps{
